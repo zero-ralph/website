@@ -14,19 +14,16 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-DROPLET_PASSWORD = 'h7A2f6pedqpJVwR'
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ta_rhwlxoka)s!yy5)-%bijif9!5(gkr#o9)$vsaxd2+v0-6yd'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['142.93.169.187', 'ralphsubrio.me']
 
 
 # Application definition
@@ -38,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # in house apps
+    'cms'
 ]
 
 MIDDLEWARE = [
@@ -69,21 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'configs.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ralph',
-        'USER': 'ralph',
-        'PASSWORD': 'r091016r',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 
 # Password validation
@@ -124,3 +109,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+if os.environ['ENVIRONMENT'] == 'production':
+    from .other_settings.production import *
+else:
+    from .other_settings.localsettings import *
