@@ -11,8 +11,10 @@ DATABASES = {
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = []
 
 DROPLET_PASSWORD = 'h7A2f6pedqpJVwR'
 
 SECRET_KEY = 'ta_rhwlxoka)s!yy5)-%bijif9!5(gkr#o9)$vsaxd2+v0-6yd'
+
+CORS_ORIGIN_ALLOW_ALL = True
