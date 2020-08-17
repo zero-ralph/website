@@ -2,9 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include 'frontend/_includes/_head.html' %}
-    <body class='background-body'>
+    <body>
+
+        <!-- ======= Mobile nav toggle button ======= -->
+        <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
         {% include 'frontend/_includes/_header.html' %}
         {% block content %}{% endblock %}
+
+        {% include 'frontend/_includes/_footer.html' %}
         {% include 'frontend/_includes/_scripts.html' %}
     </body>
+
 </html>
