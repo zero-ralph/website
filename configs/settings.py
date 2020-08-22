@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     # in house apps
     'cms',
-    'frontend'
+    'frontend',
+    'profiles'
 
     
 ]

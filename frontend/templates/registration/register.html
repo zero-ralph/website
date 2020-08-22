@@ -1,0 +1,48 @@
+{% extends 'cms/base.html' %}
+{% load widget_tweaks %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<section class='row p-0 h-100'>
+    
+    {% include 'registration/_includes/_sidebar.html' %}
+    
+
+    <div class='col-md-8' style='margin-top: 10.75%; margin-bottom: 15.75%'>
+        <form autocomplete="off" action="{% url 'register' %}" method='POST' class='col-md-6'>
+            {% csrf_token %}
+
+            {% if form.errors %}
+                {{ form.errors }}
+            {% endif %}
+
+            <div class='form-group'>
+                <label for="{{ form.email.id }}"><small>{{ form.email.label }}</small></label>
+                {{ form.email|add_class:'form-control' }}
+            </div>
+            
+            <div class='form-group'>
+                <label for="{{ form.username.id }}"><small>{{ form.username.label }}</small></label>
+                {{ form.username|add_class:'form-control'|attr:'autocomplete="false"'|remove_attr:'required' }}
+            </div>
+            
+            
+            <div class='form-group'>
+                <label for="{{ form.password1.id }}"><small>{{ form.password1.label }}</small></label>
+                {{ form.password1|add_class:'form-control' }}
+            </div>
+
+            <div class='form-group'>
+                <label for="{{ form.password2.id }}"><small>{{ form.password2.label }}</small></label>
+                {{ form.password2|add_class:'form-control' }}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-sm">Register</button>
+            <span><a href="{% url 'login' %}"><small><i class='bx bx-log-out'></i> Go Back to Login</small></a></span>
+            
+        </form>
+
+        
+    </div>
+</section>
+{% endblock %}

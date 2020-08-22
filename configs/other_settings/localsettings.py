@@ -19,4 +19,15 @@ SECRET_KEY = 'ta_rhwlxoka)s!yy5)-%bijif9!5(gkr#o9)$vsaxd2+v0-6yd'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard'
+
+"""
+after pulling restart this things
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+udo nginx -t && sudo systemctl restart nginx
+
+superuser
+username: ralph
+password: r091016r
+"""
