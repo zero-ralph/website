@@ -23,5 +23,6 @@ class RegisterForm(CreateView):
             login(self.request, user)
             return redirect(reverse('homepage'))
         
+        
         context = {'form': form }
         return render(self.request, self.template_name, context)

@@ -25,7 +25,7 @@ LOGIN_REDIRECT_URL = '/dashboard'
 after pulling restart this things
 sudo systemctl daemon-reload
 sudo systemctl restart gunicorn
-udo nginx -t && sudo systemctl restart nginx
+sudo nginx -t && sudo systemctl restart nginx
 
 superuser
 username: ralph
