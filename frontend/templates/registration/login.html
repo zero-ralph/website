@@ -1,0 +1,58 @@
+{% extends 'cms/base.html' %}
+{% load widget_tweaks %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<section class='row p-0 h-100'>
+    <div class='col-md-4 py-3 text-center' style='background-color: #040b14;'>
+        <div style='padding-top: 50%; padding-bottom: 50%'>
+            <h1 class='text-white'>Application</h1>
+            <h1 class='text-white'>Login Page</h1>
+            <h6 class='text-white'>Login or register from here to access.</h3>
+        </div>
+    </div>
+    <div class='col-md-8' style='margin-top: 15.75%; margin-bottom: 15.75%'>
+        {% if form.errors %}
+            <div class='col-md-6'>
+                <div class='alert alert-danger' role='alert'>
+                    User credentials show no record
+                </div>
+            </div>
+        {% endif %}
+
+        {% if next %}
+            <div class='col-md-6'>
+                <div class='alert alert-danger' role='alert'>
+                    Can't access that page ? Login First 
+                </div>
+            </div>
+        {% endif %}
+
+        <form autocomplete="off" action="{% url 'login' %}" method='POST' class='col-md-6'>
+            {% csrf_token %}
+            <input type='hidden' name='next' value='{{ next }}' />
+            
+            <div class='form-group'>
+                <label for="{{ form.username.id }}">{{ form.username.label }}</label>
+                {{ form.username|add_class:'form-control'|attr:'autocomplete="false"'|remove_attr:'required' }}
+            </div>
+            
+            <div class='form-group'>
+                <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+                {{ form.password|add_class:'form-control' }}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+            <span class='font-weight-light'>
+                <p>
+                    <small>
+                        <a href="">Register</a> | <a href='#'>Lost your Password ?</a>
+                    </small>
+                </p>
+            </span>
+        </form>
+
+        
+    </div>
+</section>
+{% endblock %}

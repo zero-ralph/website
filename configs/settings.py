@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # django 3rd party apps
     'rest_framework',
     'corsheaders',
+    'widget_tweaks',
 
     # in house apps
     'cms',
