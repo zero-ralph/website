@@ -1,4 +1,5 @@
 from ..base_imports import *
+from django.contrib.auth.hashers import make_password
 
 
 class RegisterForm(CreateView):
@@ -16,6 +17,8 @@ class RegisterForm(CreateView):
         form = RegistrationForm(request.POST)
 
         if form.is_valid():
+            form.save()
+            """
             user = form.save()
             absolute_path = self.request.scheme + '://' + self.request.get_host()
             send_register_email(
@@ -31,6 +34,13 @@ class RegisterForm(CreateView):
             )
             messages.success(self.request, 'An email activation has been sent to your email.')
             return redirect(reverse('login'))
+            """
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(reverse('dashboard'))
         
         
         context = {'form': form }

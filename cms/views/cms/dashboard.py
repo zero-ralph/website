@@ -8,5 +8,5 @@ class Dashboard(LoginRequiredMixin):
 
     def get(self, request, *args, **kwargs):
         absolute_path = self.request.scheme + '://' + self.request.get_host()
-        print(absolute_path)
+        print(request.user)
         return render(self.request, self.template_name)
