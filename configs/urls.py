@@ -25,6 +25,12 @@ urlpatterns = [
     path('', include('frontend.urls')),
 
     # cms
+    path('', include('cms.urls')),
+
+    # profile
+    path('', include('profiles.urls')),
+
+    # users
     path('console/', include('django.contrib.auth.urls'))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

@@ -19,7 +19,11 @@ SECRET_KEY = 'ta_rhwlxoka)s!yy5)-%bijif9!5(gkr#o9)$vsaxd2+v0-6yd'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/console/dashboard'
+LOGOUT_REDIRECT_URL = '/console/login'
+
+EMAIL_HOST_USER = 'ralph.subrio@gmail.com'
+EMAIL_HOST_PASSWORD = 'wmxqjxpbrlujfzee'
 
 """
 after pulling restart this things

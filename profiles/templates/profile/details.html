@@ -1,0 +1,57 @@
+{% extends 'cms/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+    {% include 'cms/_includes/_dashboard_header.html' %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class='alert alert-{{ message.tags }}'>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <section class='mx-auto col-md-6'>
+        <div class='card'>
+            <div class='card-body'>
+                <form action="{% url 'profile_details' current_user.profile.id %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.email.id }}">{{ form.email.label }}</label>
+                        {{ form.email|add_class:'form-control' }}
+                    </div>
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.first_name.id }}">{{ form.first_name.label}}</label>
+                        {{ form.first_name|add_class:'form-control' }}
+                    </div>
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.middle_name.id }}">{{ form.middle_name.label }}</label>
+                        {{ form.middle_name|add_class:'form-control' }}
+                    </div>
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.last_name.id }}">{{ form.last_name.label }}</label>
+                        {{ form.last_name|add_class:'form-control' }}
+                    </div>
+
+                    <button type='submit' class='btn btn-sm btn-primary float-right ml-2'>
+                        <i class='bx bx-pencil'></i> Update Profile
+                    </button> 
+
+                    <span class='float-right'>
+                        <a href="{% url 'dashboard' %}">
+                            <small>
+                                <i class='bx bx-arrow-back'></i> Go Back
+                            </small>
+                        </a>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

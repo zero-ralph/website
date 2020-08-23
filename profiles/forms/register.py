@@ -4,8 +4,8 @@ from .base_imports import *
 class RegistrationForm(forms.Form):
     email = forms.EmailField(label='Email', required=True)
     username = forms.CharField(label='Username', required=True)
-    password1 = forms.CharField(label='Password', required=False, widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password Confirmation', required=False, widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password', required=True, widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password Confirmation', required=True, widget=forms.PasswordInput)
 
 
     def clean_email(self):
@@ -36,7 +36,8 @@ class RegistrationForm(forms.Form):
     def save(self, commit=True):
         user = User()
         user.username = self.cleaned_data['username']
-        user.password = self.cleaned_data['password1']
+        user.password = make_password(self.cleaned_data['password1'])
+        user.is_active = False
         user.save()
 
         profile = UserProfile()

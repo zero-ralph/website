@@ -20,4 +20,5 @@ SECRET_KEY = 'ta_rhwlxoka)s!yy5)-%bijif9!5(gkr#o9)$vsaxd2+v0-6yd'
 #    'localhost:3000',
 #)
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/console/dashboard'
+LOGOUT_REDIRECT_URL = 'login/'
