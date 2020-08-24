@@ -1,0 +1,13 @@
+<div class="col-md-3" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+            {% if request.user.is_superuser %}
+                <a href="{% url 'social_media' %}" class="list-group-item list-group-item-action bg-light">CMS</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Blog/Learnings</a>
+            {% endif %}
+            
+        </div>
+    </div>
+  </div>

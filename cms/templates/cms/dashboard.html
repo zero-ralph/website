@@ -4,5 +4,12 @@
 
 {% block content %}
     {% include 'cms/_includes/_dashboard_header.html' %}
-    
+    <section class='row p-0'>
+        {% include 'cms/_includes/_sidebar.html' %}
+        <div class='col-md-9'>
+            <div class='container-fluid'>
+                This is dashboard
+            </div>
+        </div>
+    </section>
 {% endblock %}

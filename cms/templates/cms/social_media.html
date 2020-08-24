@@ -1,0 +1,47 @@
+{% extends 'cms/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    {% include 'cms/_includes/_dashboard_header.html' %}
+    <section class='row p-0'>
+        {% include 'cms/_includes/_sidebar.html' %}
+        <div class='col-md-9 p-0'>
+            <div class='container-fluid p-0'> 
+                <nav class="nav nav-pills nav-justified">
+                    <a class="nav-item nav-link active" href="{% url 'social_media' %}" style='color: black; background: none; border-bottom: 1px #14a2b8 solid;'>Social Media</a>
+                    <a class="nav-item nav-link" href="{% url 'tags_list' %}">Hero Tags</a>
+                    <a class="nav-item nav-link" href="#">Link</a>
+                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </nav>
+
+                <div class='row'>
+                    <div class='col-md-6 mx-auto mt-3 '>
+                        <form action='#' method='POST'>
+                            {% csrf_token %}
+                            <div class='form-group'>
+                                <label class='text-sm control-label' for="{{ form.facebook.id }}">{{ form.facebook.label }}</label>
+                                {{ form.facebook|add_class:'form-control'|default:'-' }}
+                            </div>
+
+                            <div class='form-group'>
+                                <label class='text-sm control-label' for="{{ form.linkedin.id }}">{{ form.linkedin.label }}</label>
+                                {{ form.linkedin|add_class:'form-control'|default:'-' }}
+                            </div>
+
+                            <div class='form-group'>
+                                <label class='text-sm control-label' for="{{ form.instagram.id }}">{{ form.instagram.label }}</label>
+                                {{ form.instagram|add_class:"form-control"|default:'-' }}
+                            </div>
+
+                            <button type='submit' class='btn btn-sm btn-primary float-right'>
+                                <i class='bx bx-pencil'></i> Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

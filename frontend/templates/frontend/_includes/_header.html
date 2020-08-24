@@ -9,9 +9,9 @@
         <img src="{% static 'frontend/img/header.jpg'%}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Ralph Subrio</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="https://www.facebook.com/ralph.subrio.10" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/ralph.subrio/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/ralphsubrio/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="{{ social_media.facebook }}" class="facebook" target='_blank'><i class="bx bxl-facebook"></i></a>
+          <a href="{{ social_media.linkedin }}" class="instagram" target='_blank'><i class="bx bxl-instagram"></i></a>
+          <a href="{{ social_media.instagram }}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 

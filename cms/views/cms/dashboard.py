@@ -7,6 +7,4 @@ class Dashboard(LoginRequiredMixin):
     template_name = 'cms/dashboard.html'
 
     def get(self, request, *args, **kwargs):
-        absolute_path = self.request.scheme + '://' + self.request.get_host()
-        print(request.user)
         return render(self.request, self.template_name)

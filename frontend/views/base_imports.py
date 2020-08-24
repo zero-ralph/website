@@ -15,6 +15,8 @@ from django.views.generic import (
     FormView
 )
 
+# cms
+from cms.models import SocialMedia
 
 # common app
 from common.tasks import *
