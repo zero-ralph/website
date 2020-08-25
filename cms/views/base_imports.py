@@ -9,12 +9,14 @@ from django.shortcuts import (
 from ..models import (
     SocialMedia, 
     Tag,
-    About
+    About,
+    Skill
 )
 from ..forms import (
     SocialMediaForm, 
     HeroTagForm,
     AboutForm,
+    SkillForm
 )
 
 # common

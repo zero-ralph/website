@@ -4,4 +4,8 @@ from .hero_tags import HeroTagList
 from .hero_tag_create import HeroTagCreate
 from .hero_tag_delete import HeroTagDelete
 from .hero_tag_update import HeroTagUpdate
+from .skill_create import SkillCreate
+from .skill_delete import SkillDelete
+from .skill_update import SkillUpdate
+from .skills import SkillsView
 from .social_media import SocialMediaView

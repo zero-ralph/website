@@ -19,7 +19,8 @@ from django.views.generic import (
 from cms.models import (
     SocialMedia, 
     Tag,
-    About
+    About,
+    Skill
 )
 
 # common app
