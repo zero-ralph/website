@@ -7,7 +7,7 @@ class AboutForm(forms.ModelForm):
         model = About
         fields = [
             'subtitle', 'position_header', 'position_sub_header', 'location',
-            'services_sub_header'
+            'services_sub_header', 'embed_map'
         ]
 
 

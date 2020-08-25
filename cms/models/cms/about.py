@@ -8,6 +8,7 @@ class About(models.Model):
     freelance = models.BooleanField(default=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     services_sub_header = models.CharField(max_length=255, null=True, blank=True)
+    embed_map = models.TextField(null=True, blank=True)
 
     class Meta:
         db_table = 'about'
