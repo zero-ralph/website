@@ -10,13 +10,15 @@ from ..models import (
     SocialMedia, 
     Tag,
     About,
-    Skill
+    Skill,
+    Service
 )
 from ..forms import (
     SocialMediaForm, 
     HeroTagForm,
     AboutForm,
-    SkillForm
+    SkillForm,
+    ServiceForm
 )
 
 # common

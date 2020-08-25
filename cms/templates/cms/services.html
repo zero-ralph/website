@@ -11,38 +11,49 @@
             <div class='container-fluid p-0'> 
                 <nav class="nav nav-pills nav-justified">
                     <a class="nav-item nav-link" href="{% url 'social_media' %}" style='color: black; background: none; border-bottom: 1px #14a2b8 solid;'>Social Media</a>
-                    <a class="nav-item nav-link active" href="{% url 'tags_list' %}">Hero Tags</a>
+                    <a class="nav-item nav-link" href="{% url 'tags_list' %}">Hero Tags</a>
                     <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
                     <a class="nav-item nav-link" href="{% url 'skills_list' %}">Skills</a>
-                    <a class="nav-item nav-link" href="{% url 'services_list' %}">Services</a>
+                    <a class="nav-item nav-link active" href="{% url 'services_list' %}">Services</a>
 
                 </nav>
 
                 <div class='row mt-5 pl-2 pr-2'>
                     <div class='col-md-12 text-right'>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_tag">
-                            <i class='bx bx-plus'></i> Add Tag
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_service">
+                            <i class='bx bx-plus'></i> Add Skill
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="create_tag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="create_service" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Create Tag</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Create Service</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     
-                                    <form action="{% url 'tags_create' %}" method="POST">
+                                    <form action="{% url 'service_create' %}" method="POST">
                                         {% csrf_token %}
                                     
                                         <div class="modal-body">
+
+                                            <div class='form-group'>
+                                                <label class='text-sm control-label float-left' class="{{ form.icon.id }}">{{ form.icon.label }}</label>
+                                                {{ form.icon|add_class:"form-control" }}
+                                            </div>
+
                                             <div class='form-group'>
                                                 <label class='text-sm control-label float-left' class="{{ form.name.id }}">{{ form.name.label }}</label>
                                                 {{ form.name|add_class:"form-control" }}
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label class='text-sm control-label float-left' class="{{ form.description.id }}">{{ form.description.label }}</label>
+                                                {{ form.description|add_class:"form-control" }}
                                             </div>
                                         </div>
                                         
@@ -59,20 +70,22 @@
                     </div>
                     
                     <div class='col-md-12'>
-                        <table id="tags_table" class='table'>
+                        <table id="services_table" class='table'>
                             <thead>
                                 <th>Name</th>
+                                <th>Description</th>
                                 <th>Is Deleted ?</th>
                                 <th></th>
                             </thead>
                             <tbody>
-                                {% for tag in tags %}
+                                {% for service in services %}
                                     <tr>
-                                        <td>{{ tag.name }}</td>
-                                        <td>{{ tag.is_deleted|upper }}</td>
+                                        <td>{{ service.name }}</td>
+                                        <td>{{ service.description }}</td>
+                                        <td>{{ service.is_deleted|upper }}</td>
                                         <td>
-                                            {% include 'cms/_includes/_tags/_update_modal.html' with id=tag.id name=tag.name %}
-                                            {% include 'cms/_includes/_tags/_delete_modal.html' with id=tag.id name=tag.name %}
+                                            {% include 'cms/_includes/_services/_update_modal.html' with id=service.id icon=service.icon name=service.name description=service.description %}
+                                            {% include 'cms/_includes/_services/_delete_modal.html' with id=service.id icon=service.icon name=service.name description=service.description %}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -89,7 +102,7 @@
 {% block scripts %}
 <script type='text/javascript'>
     $(document).ready(function(){
-        $('#tags_table').DataTable({
+        $('#services_table').DataTable({
             "bLengthChange": false,
         });
     });

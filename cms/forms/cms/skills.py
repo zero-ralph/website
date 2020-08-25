@@ -7,4 +7,9 @@ class SkillForm(forms.ModelForm):
         model = Skill
         fields = ['name', 'percentage']
 
-    
+
+    def save(self, commit=True):
+        instance = super(SkillForm, self).save(commit=False)
+        if commit:
+            instance.save()
+        return instance

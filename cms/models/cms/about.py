@@ -7,6 +7,7 @@ class About(models.Model):
     position_sub_header = models.CharField(max_length=255, null=True, blank=True)
     freelance = models.BooleanField(default=True)
     location = models.CharField(max_length=255, null=True, blank=True)
+    services_sub_header = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
         db_table = 'about'

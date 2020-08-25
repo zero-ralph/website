@@ -4,6 +4,10 @@ from .hero_tags import HeroTagList
 from .hero_tag_create import HeroTagCreate
 from .hero_tag_delete import HeroTagDelete
 from .hero_tag_update import HeroTagUpdate
+from .service_create import ServiceCreate
+from .service_delete import ServiceDelete
+from .service_update import ServiceUpdate
+from .services import ServicesView
 from .skill_create import SkillCreate
 from .skill_delete import SkillDelete
 from .skill_update import SkillUpdate

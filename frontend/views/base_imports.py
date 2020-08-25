@@ -20,7 +20,8 @@ from cms.models import (
     SocialMedia, 
     Tag,
     About,
-    Skill
+    Skill,
+    Service
 )
 
 # common app

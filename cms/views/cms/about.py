@@ -14,7 +14,7 @@ class AboutView(LoginRequiredMixin):
             form = AboutForm()
             
         context['form'] = form
-        
+        print(context)
         return render(self.request, self.template_name, context)
 
     

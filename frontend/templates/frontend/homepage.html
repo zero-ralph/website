@@ -141,15 +141,15 @@
       </div>
     </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
+    {% comment %}
     <section id="resume" class="resume">
       <div class="container">
 
         <div class="section-title">
           <h2>Resume</h2>
-          {% comment %}
+          
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-          {% endcomment %}
+          
         </div>
 
         <div class="row">
@@ -170,17 +170,17 @@
               <h4>Bachelor of Science in Information Technology</h4>
               <h5>2009 - 2013</h5>
               <p><em>University of the East Caloocan City</em></p>
-              {% comment %}
+              
               <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-              {% endcomment %}
+              
             </div>
             <div class="resume-item">
               <h4>Bachelor of Science in Accountancy</h4>
               <h5>2007 - 2009</h5>
               <p><em>University of the East Caloocan City</em></p>
-              {% comment %}
+              
               <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-              {% endcomment %}
+              
             </div>
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
@@ -205,9 +205,8 @@
         </div>
 
       </div>
-    </section><!-- End Resume Section -->
-
-    {% comment %}
+    </section>
+  
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
@@ -332,27 +331,18 @@
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>I am well versed in web development, API devlopment, database architecture</p>
+          <p>{{ about.services_sub_header }}</p>
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="icofont-computer"></i></div>
-            <h4 class="title"><a href="">Web Development (Php)</a></h4>
-            <p class="description">Laravel</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
-            <h4 class="title"><a href="">Web Development (Python)</a></h4>
-            <p class="description">Django or Flask</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="icofont-earth"></i></div>
-            <h4 class="title"><a href="">Architectural Design</a></h4>
-            <p class="description">System Architecture, Database layout</p>
-          </div>
+          {% for service in services %}
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                <div class="icon"><i class="icofont-{{ serivce.icon }}"></i></div>
+                <h4 class="title"><a href="">{{ service.name }}</a></h4>
+                <p class="description">{{ service.description }}</p>
+            </div>
+          {% endfor %}
         </div>
-
       </div>
     </section><!-- End Services Section -->
 

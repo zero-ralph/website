@@ -13,5 +13,8 @@ urlpatterns = [
     path('console/cms/skills/create', SkillCreate.as_view(), name='skill_create'),
     path('console/cms/skills/update/<uuid:skill_id>', SkillUpdate.as_view(), name='skill_update'),
     path('console/cms/skills/delete/<uuid:skill_id>', SkillDelete.as_view(), name='skill_delete'),
-
+    path('console/cms/services', ServicesView.as_view(), name='services_list'),
+    path('console/cms/services/create', ServiceCreate.as_view(), name='service_create'),
+    path('console/cms/services/update/<uuid:service_id>', ServiceUpdate.as_view(), name='service_update'),
+    path('console/cms/services/deleted/<uuid:service_id>', ServiceDelete.as_view(), name='service_delete')
 ]

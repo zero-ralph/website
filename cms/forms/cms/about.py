@@ -6,7 +6,8 @@ class AboutForm(forms.ModelForm):
     class Meta:
         model = About
         fields = [
-            'subtitle', 'position_header', 'position_sub_header', 'location'
+            'subtitle', 'position_header', 'position_sub_header', 'location',
+            'services_sub_header'
         ]
 
 
