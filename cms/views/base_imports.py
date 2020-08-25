@@ -8,11 +8,13 @@ from django.shortcuts import (
 
 from ..models import (
     SocialMedia, 
-    Tag
+    Tag,
+    About
 )
 from ..forms import (
     SocialMediaForm, 
-    HeroTagForm
+    HeroTagForm,
+    AboutForm,
 )
 
 # common

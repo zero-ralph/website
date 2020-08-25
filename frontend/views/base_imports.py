@@ -16,7 +16,11 @@ from django.views.generic import (
 )
 
 # cms
-from cms.models import SocialMedia
+from cms.models import (
+    SocialMedia, 
+    Tag,
+    About
+)
 
 # common app
 from common.tasks import *
