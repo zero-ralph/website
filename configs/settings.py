@@ -44,9 +44,8 @@ INSTALLED_APPS = [
     # in house apps
     'cms',
     'frontend',
-    'profiles'
-
-    
+    'profiles',
+    'learnings',
 ]
 
 MIDDLEWARE = [

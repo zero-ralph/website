@@ -16,5 +16,7 @@ urlpatterns = [
     path('console/cms/services', ServicesView.as_view(), name='services_list'),
     path('console/cms/services/create', ServiceCreate.as_view(), name='service_create'),
     path('console/cms/services/update/<uuid:service_id>', ServiceUpdate.as_view(), name='service_update'),
-    path('console/cms/services/deleted/<uuid:service_id>', ServiceDelete.as_view(), name='service_delete')
+    path('console/cms/services/deleted/<uuid:service_id>', ServiceDelete.as_view(), name='service_delete'),
+    path('console/cms/learnings', LearningList.as_view(), name='learnings_list'),
+    path('console/cms/learnings/create', CreateLearning.as_view(), name='learning_create')
 ]

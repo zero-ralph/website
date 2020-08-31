@@ -6,3 +6,5 @@ from ..models import (
     Skill,
     Service
 )
+
+from learnings.models import Learning

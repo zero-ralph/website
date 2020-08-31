@@ -1,0 +1,48 @@
+{% extends 'cms/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    {% include 'cms/_includes/_dashboard_header.html' %}
+    <section class='row p-0'>
+        {% include 'cms/_includes/_sidebar.html' %}
+        <div class='col-md-9'>
+            <div class='container-fluid'>
+                <br /><br />
+                <div class='text-right'>
+                    <a href="{% url 'learning_create' %}" class='btn btn-sm btn-primary'>
+                        <i class='bx bx-plus'></i> Add Learnings</a>
+                </div>
+                <br /><br />
+                
+                <table id='learnings_table' class='table'>
+                    <thead>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        {% for learning in learnings %}
+                            <tr>
+                                <td>{{ learning.title }}</td>
+                                <td>{{ learning.status }}</td>
+                                <td>Update | delete </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('#learnings_table').DataTable(
+                {
+                    "bLengthChange": false,
+                }
+            );
+        });
+    </script>
+{% endblock %}

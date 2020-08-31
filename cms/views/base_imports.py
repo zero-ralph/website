@@ -18,8 +18,12 @@ from ..forms import (
     HeroTagForm,
     AboutForm,
     SkillForm,
-    ServiceForm
+    ServiceForm,
+    LearningForm
 )
 
 # common
 from common.views import *
+
+# learnings
+from learnings.models import *

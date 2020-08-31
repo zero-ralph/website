@@ -6,5 +6,5 @@ host_patterns = patterns(
     '',
     host(r'www', 'configs.subdomains.frontend', name='www'),
     host(r'admin', 'configs.subdomains.admin', name='admin'),
-    
+    host(r'api', 'configs.subdomains.api', name='api')
 )

@@ -1,0 +1,33 @@
+{% extends 'cms/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Create Learnings{% endblock %}
+
+{% block content %}
+    {% include 'cms/_includes/_dashboard_header.html' %}
+    <section class='row p-0'>
+        {% include 'cms/_includes/_sidebar.html' %}
+        <div class='col-md-9'>
+            <div class='container-fluid'>
+                <form action="{% url 'learning_create' %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.title.id }}">{{ form.title.label }}</label>
+                        {{ form.title|add_class:'form-control'|attr:"required" }}
+                    </div>
+
+                    <div class='form-group'>
+                        <label class='control-label text-sm' for="{{ form.description.id }}">{{ form.description.label }}</label>
+                        {{ form.description|add_class:'form-control'|attr:"required" }}
+                    </div>
+
+                    <div class="form-group">
+                        <button type='submit' class='btn btn-sm btn-success'>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

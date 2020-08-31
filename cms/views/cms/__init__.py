@@ -13,3 +13,5 @@ from .skill_delete import SkillDelete
 from .skill_update import SkillUpdate
 from .skills import SkillsView
 from .social_media import SocialMediaView
+from .learnings import LearningList
+from .create_learning import CreateLearning
