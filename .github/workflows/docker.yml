@@ -1,0 +1,12 @@
+name: Docker Build and Push
+
+on:
+  main:
+    branches: ["main"]
+  
+jobs:
+  build:
+    runs-on: ubuntu:latest
+
+  steps:
+    

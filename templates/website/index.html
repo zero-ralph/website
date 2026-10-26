@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title|default:"Personal Website" }}</title>
+
+  <!-- foundation.min.css: Compressed CSS with XY Grid -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/css/foundation.min.css" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --ink: #191919;
+      --paper: #f7f6f3;
+      --muted: #787774;
+      --line: #e3e2de;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+    a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 4rem 1rem; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5rem; }
+    .nav .menu a { padding: 0 0 0 1.25rem; color: var(--muted); text-decoration: none; }
+    .nav .menu a:hover { color: var(--ink); }
+
+    .intro h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .intro p { font-size: 1.15rem; color: var(--muted); max-width: 32rem; }
+
+    .button { background: var(--ink); color: var(--paper); border-radius: 6px; text-decoration: none; }
+    .button:hover, .button:focus { background: #000; color: var(--paper); }
+    .button.hollow { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .button.hollow:hover { background: var(--ink); color: var(--paper); }
+
+    section { margin-top: 5rem; }
+    section h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .project h3 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+    .project p { color: var(--muted); margin: 0.25rem 0 0; }
+    .project .year { color: var(--muted); font-size: 0.9rem; }
+
+    .footer { margin-top: 5rem; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <strong>Your Name</strong>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="intro">
+      <h1>Hi, I'm Your Name.</h1>
+      <p>Developer and designer. I build simple, useful things for the web.</p>
+      <a href="#work" class="button">See my work</a>
+      <a href="#contact" class="button hollow">Contact me</a>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I'm based in Your City and currently working at Your Company. I care about clean code,
+        thoughtful design, and tools that get out of the way. Outside of work you'll find me
+        reading, hiking, or tinkering with side projects.
+      </p>
+    </section>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+
+      <div class="project grid-x align-justify">
+        <div class="cell auto">
+          <h3><a href="#">Project One</a></h3>
+          <p>A short description of what this project does.</p>
+        </div>
+        <div class="cell shrink year">2026</div>
+      </div>
+
+      <div class="project grid-x align-justify">
+        <div class="cell auto">
+          <h3><a href="#">Project Two</a></h3>
+          <p>A short description of what this project does.</p>
+        </div>
+        <div class="cell shrink year">2025</div>
+      </div>
+
+      <div class="project grid-x align-justify">
+        <div class="cell auto">
+          <h3><a href="#">Project Three</a></h3>
+          <p>A short description of what this project does.</p>
+        </div>
+        <div class="cell shrink year">2024</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email me at <a href="mailto:you@example.com">you@example.com</a>, or find me on
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> and
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      &copy; {% now "Y" %} Your Name
+    </footer>
+
+  </div>
+</body>
+</html>
