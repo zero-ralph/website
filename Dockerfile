@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Create and switch to a secure, non-root system user
-RUN groupadd -r appuser && useradd -r -m -g appuser afppuserf
+RUN groupadd -r appuser && useradd -r -m -g appuser appuser
 
 # Copy the isolated virtual environment from the builder
 COPY --from=builder --chown=appuser:appuser /app/.venv /app/.venv
