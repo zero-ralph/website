@@ -1,10 +1,14 @@
 import io
+from http import HTTPStatus
+from django.db.utils import IntegrityError
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
+from django.urls import reverse, resolve
 from django.utils import timezone
 from PIL import Image
 from .models import LandingPage, Project
+from .views import IndexView
 
 
 # Create your tests here.
@@ -155,6 +159,18 @@ class LandingPageTestCase(TestCase):
                 linkedin_link="linkedin.com/in/ralphsubrio/"
             ).full_clean()
 
+    def test_url_resolves_by_name(self):
+        url = reverse("index")
+        resolver = resolve(url)
+
+        self.assertEqual(resolver.func.view_class, IndexView)
+
+    def test_landing_page_status_code(self):
+        url = reverse('index')
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+
 
 class ProjectTestCase(TestCase):
 
@@ -187,8 +203,9 @@ class ProjectTestCase(TestCase):
             ).full_clean()
 
     def test_project_missing_created_at(self):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(IntegrityError):
             Project.objects.create(
                 title="project 1",
                 short_description="This is project 1",
             ).full_clean()
+
